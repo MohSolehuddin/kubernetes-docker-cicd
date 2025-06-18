@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-docker-cicd-deployment
+  labels:
+    app:
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubernetes-docker-cicd
+  template:
+    metadata:
+      labels:
+        app: kubernetes-docker-cicd
+    spec:
+      containers:
+        - name: kubernetes-docker-cicd
+          image: mohsolehuddin/kubernetes-docker-cicd
+          ports:
+            - containerPort: 80
