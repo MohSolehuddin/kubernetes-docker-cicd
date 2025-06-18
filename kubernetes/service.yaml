@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kubernetes-docker-cicd-service
+spec:
+  selector:
+    app: kubernetes-docker-cicd
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8081
