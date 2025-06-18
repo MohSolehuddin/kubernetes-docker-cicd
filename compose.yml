@@ -1,5 +1,6 @@
 services:
   backend:
     build: .
+    image: mohsolehuddin/kubernetes-docker-cicd
     ports:
       - "8081:8080"
