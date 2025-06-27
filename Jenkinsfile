@@ -52,9 +52,9 @@ pipeline {
 
                             sh "sed -i 's|image: ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:.*|image: ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}|g' ${KUBERNETES_MANIFESTS_PATH}/deployment.yml"
 
-                            sh "kubectl apply -f ${KUBERNETES_MANIFESTS_PATH}/deployment.yml"
-                            sh "kubectl apply -f ${KUBERNETES_MANIFESTS_PATH}/service.yml"
-                            sh "kubectl apply -f ${KUBERNETES_MANIFESTS_PATH}/ingress.yml"
+                            sh "kubectl apply -f ${KUBERNETES_MANIFESTS_PATH}/deployment.yaml"
+                            sh "kubectl apply -f ${KUBERNETES_MANIFESTS_PATH}/service.yaml"
+                            sh "kubectl apply -f ${KUBERNETES_MANIFESTS_PATH}/ingress.yaml"
 
                             sh "kubectl rollout status deployment/${IMAGE_NAME}-deployment --timeout=5m"
                             try {
